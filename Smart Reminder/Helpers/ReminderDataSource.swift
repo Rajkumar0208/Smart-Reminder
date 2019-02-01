@@ -26,12 +26,6 @@ class ReminderDataSource: NSObject {
         fetchFromCoreData()
     }
     
-    func updateDataSource(tasks: [UserTask], reset: Bool = false) {
-        if reset { self.tasks.removeAll() }
-        self.tasks.append(contentsOf: tasks)
-        applyFilter(filter)
-    }
-    
     func task(at indexPath: IndexPath) -> UserTask {
         return filteredTasks[indexPath.row]
     }
@@ -88,10 +82,8 @@ extension ReminderDataSource {
     
     fileprivate func fetchFromCoreData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CoreDataEntity.Task.rawValue)
-        
         do {
             let objects = try managedContext.fetch(fetchRequest)
             let tasks = objects.map { UserTask($0) }
@@ -103,21 +95,13 @@ extension ReminderDataSource {
     }
     
     func save(title: String, dueDate: Date, isCompleted: Bool = false) {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        // 1
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // 2
         let entity = NSEntityDescription.entity(forEntityName: CoreDataEntity.Task.rawValue, in: managedContext)!
         let object = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        // 3
         object.setValue(title, forKeyPath: TaskAttribute.title.rawValue)
         object.setValue(dueDate, forKeyPath: TaskAttribute.dueDate.rawValue)
         object.setValue(isCompleted, forKeyPath: TaskAttribute.isCompleted.rawValue)
-        // 4
         
         do {
             try managedContext.save()
@@ -131,34 +115,27 @@ extension ReminderDataSource {
     }
     
     fileprivate func setLocalPushNotification(_ task: UserTask) {
-        //creating the notification content
         let content = UNMutableNotificationContent()
-        
-        //adding title, subtitle, body and badge
         content.title = "Smart Reminder Alert"
         content.subtitle = task.title
         content.badge = 1
+        content.sound = UNNotificationSound.default
         
-        //getting the notification trigger
         let timeInterval = task.dueDate.timeIntervalSince1970 - Date().timeIntervalSince1970
         if timeInterval <= 0 { return }
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        
-        //getting the notification request
-        let request = UNNotificationRequest(identifier: "SimplifiedIOSNotification", content: content, trigger: trigger)
-        
-        //adding the notification to notification center
+        let requestID = task.id.uriRepresentation().absoluteString
+        let request = UNNotificationRequest(identifier: requestID, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     fileprivate func deleteObject(_ task: UserTask) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        // 1
         let managedContext = appDelegate.persistentContainer.viewContext
         let object = managedContext.object(with: task.id)
-        
         managedContext.delete(object)
+        
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [task.id.uriRepresentation().absoluteString])
         
         do {
             try managedContext.save()
@@ -168,18 +145,10 @@ extension ReminderDataSource {
     }
     
     fileprivate func update(_ task: UserTask) {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        // 1
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // 2
         let object = managedContext.object(with: task.id)
-        
-        // 3
         object.setValue(task.isCompleted, forKeyPath: TaskAttribute.isCompleted.rawValue)
-        // 4
         do {
             try managedContext.save()
         } catch let error as NSError {

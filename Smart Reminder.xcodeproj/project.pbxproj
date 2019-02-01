@@ -69,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07A632A42204E38000B67325 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				078CA98B2204DEE8005BAE19 /* TaskCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		07CA4C4A2204538000E9F55F = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				07CA4C562204538000E9F55F /* AppDelegate.swift */,
-				078CA98B2204DEE8005BAE19 /* TaskCell.swift */,
 				07CA4C7F22047E1A00E9F55F /* Controllers */,
 				07CA4C7E22047DFF00E9F55F /* Helpers */,
 				07CA4C7D22047DEA00E9F55F /* Models */,
+				07A632A42204E38000B67325 /* Views */,
 				07CA4C5A2204538000E9F55F /* Main.storyboard */,
 				07CA4C602204538200E9F55F /* Assets.xcassets */,
 				07CA4C622204538200E9F55F /* LaunchScreen.storyboard */,
