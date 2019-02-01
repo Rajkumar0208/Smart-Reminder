@@ -7,15 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078CA9802204C3B9005BAE19 /* ImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 078CA97F2204C3B9005BAE19 /* ImageClassifier.mlmodel */; };
+		078CA9822204C743005BAE19 /* SuggestedReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9812204C743005BAE19 /* SuggestedReminderViewController.swift */; };
+		078CA9842204D4F3005BAE19 /* PictureSourceAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9832204D4F3005BAE19 /* PictureSourceAlertController.swift */; };
+		078CA9862204D76D005BAE19 /* JSONDecoder-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9852204D76D005BAE19 /* JSONDecoder-Extension.swift */; };
+		078CA9882204D784005BAE19 /* CIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9872204D784005BAE19 /* CIImage-Extension.swift */; };
+		078CA98A2204DC52005BAE19 /* UINavigationController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9892204DC52005BAE19 /* UINavigationController-Extension.swift */; };
+		078CA98C2204DEE8005BAE19 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA98B2204DEE8005BAE19 /* TaskCell.swift */; };
 		07CA4C572204538000E9F55F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C562204538000E9F55F /* AppDelegate.swift */; };
 		07CA4C592204538000E9F55F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C582204538000E9F55F /* ViewController.swift */; };
 		07CA4C5C2204538000E9F55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CA4C5A2204538000E9F55F /* Main.storyboard */; };
 		07CA4C5F2204538000E9F55F /* Smart_Reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C5D2204538000E9F55F /* Smart_Reminder.xcdatamodeld */; };
 		07CA4C612204538200E9F55F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CA4C602204538200E9F55F /* Assets.xcassets */; };
 		07CA4C642204538200E9F55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CA4C622204538200E9F55F /* LaunchScreen.storyboard */; };
+		07CA4C6C220456FD00E9F55F /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C6B220456FD00E9F55F /* CoreDataHelper.swift */; };
+		07CA4C6E22045A7600E9F55F /* ReminderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C6D22045A7600E9F55F /* ReminderDataSource.swift */; };
+		07CA4C7022045B5600E9F55F /* UserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C6F22045B5600E9F55F /* UserTask.swift */; };
+		07CA4C742204619800E9F55F /* CreateReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C732204619800E9F55F /* CreateReminderViewController.swift */; };
+		07CA4C772204630600E9F55F /* ReminderDateAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C752204630600E9F55F /* ReminderDateAlertController.swift */; };
+		07CA4C7A22046DDD00E9F55F /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C7922046DDD00E9F55F /* Date-Extension.swift */; };
+		07CA4C7C22046E7500E9F55F /* TaskActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C7B22046E7500E9F55F /* TaskActionController.swift */; };
+		07CA4C8622048D4C00E9F55F /* Classifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 07CA4C8522048D4C00E9F55F /* Classifier.json */; };
+		07CA4C8822048FD900E9F55F /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA4C8722048FD900E9F55F /* Classifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078CA97F2204C3B9005BAE19 /* ImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageClassifier.mlmodel; sourceTree = "<group>"; };
+		078CA9812204C743005BAE19 /* SuggestedReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedReminderViewController.swift; sourceTree = "<group>"; };
+		078CA9832204D4F3005BAE19 /* PictureSourceAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSourceAlertController.swift; sourceTree = "<group>"; };
+		078CA9852204D76D005BAE19 /* JSONDecoder-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder-Extension.swift"; sourceTree = "<group>"; };
+		078CA9872204D784005BAE19 /* CIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage-Extension.swift"; sourceTree = "<group>"; };
+		078CA9892204DC52005BAE19 /* UINavigationController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Extension.swift"; sourceTree = "<group>"; };
+		078CA98B2204DEE8005BAE19 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		07CA4C532204538000E9F55F /* Smart Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CA4C562204538000E9F55F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07CA4C582204538000E9F55F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +47,15 @@
 		07CA4C602204538200E9F55F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07CA4C632204538200E9F55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07CA4C652204538200E9F55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CA4C6B220456FD00E9F55F /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		07CA4C6D22045A7600E9F55F /* ReminderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataSource.swift; sourceTree = "<group>"; };
+		07CA4C6F22045B5600E9F55F /* UserTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTask.swift; sourceTree = "<group>"; };
+		07CA4C732204619800E9F55F /* CreateReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderViewController.swift; sourceTree = "<group>"; };
+		07CA4C752204630600E9F55F /* ReminderDateAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateAlertController.swift; sourceTree = "<group>"; };
+		07CA4C7922046DDD00E9F55F /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		07CA4C7B22046E7500E9F55F /* TaskActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActionController.swift; sourceTree = "<group>"; };
+		07CA4C8522048D4C00E9F55F /* Classifier.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Classifier.json; sourceTree = "<group>"; };
+		07CA4C8722048FD900E9F55F /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +89,62 @@
 			isa = PBXGroup;
 			children = (
 				07CA4C562204538000E9F55F /* AppDelegate.swift */,
-				07CA4C582204538000E9F55F /* ViewController.swift */,
+				078CA98B2204DEE8005BAE19 /* TaskCell.swift */,
+				07CA4C7F22047E1A00E9F55F /* Controllers */,
+				07CA4C7E22047DFF00E9F55F /* Helpers */,
+				07CA4C7D22047DEA00E9F55F /* Models */,
 				07CA4C5A2204538000E9F55F /* Main.storyboard */,
 				07CA4C602204538200E9F55F /* Assets.xcassets */,
 				07CA4C622204538200E9F55F /* LaunchScreen.storyboard */,
 				07CA4C652204538200E9F55F /* Info.plist */,
 				07CA4C5D2204538000E9F55F /* Smart_Reminder.xcdatamodeld */,
+				078CA97F2204C3B9005BAE19 /* ImageClassifier.mlmodel */,
+				07CA4C8522048D4C00E9F55F /* Classifier.json */,
 			);
 			path = "Smart Reminder";
+			sourceTree = "<group>";
+		};
+		07CA4C7D22047DEA00E9F55F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07CA4C8722048FD900E9F55F /* Classifier.swift */,
+				07CA4C6F22045B5600E9F55F /* UserTask.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07CA4C7E22047DFF00E9F55F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				07CA4C6D22045A7600E9F55F /* ReminderDataSource.swift */,
+				07CA4C7922046DDD00E9F55F /* Date-Extension.swift */,
+				07CA4C6B220456FD00E9F55F /* CoreDataHelper.swift */,
+				078CA9852204D76D005BAE19 /* JSONDecoder-Extension.swift */,
+				078CA9872204D784005BAE19 /* CIImage-Extension.swift */,
+				078CA9892204DC52005BAE19 /* UINavigationController-Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		07CA4C7F22047E1A00E9F55F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07CA4C582204538000E9F55F /* ViewController.swift */,
+				07CA4C732204619800E9F55F /* CreateReminderViewController.swift */,
+				07CA4C8022047E2600E9F55F /* Action Sheets */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		07CA4C8022047E2600E9F55F /* Action Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				07CA4C752204630600E9F55F /* ReminderDateAlertController.swift */,
+				07CA4C7B22046E7500E9F55F /* TaskActionController.swift */,
+				078CA9812204C743005BAE19 /* SuggestedReminderViewController.swift */,
+				078CA9832204D4F3005BAE19 /* PictureSourceAlertController.swift */,
+			);
+			path = "Action Sheets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CA4C8622048D4C00E9F55F /* Classifier.json in Resources */,
 				07CA4C642204538200E9F55F /* LaunchScreen.storyboard in Resources */,
 				07CA4C612204538200E9F55F /* Assets.xcassets in Resources */,
 				07CA4C5C2204538000E9F55F /* Main.storyboard in Resources */,
@@ -138,9 +219,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078CA98A2204DC52005BAE19 /* UINavigationController-Extension.swift in Sources */,
+				07CA4C7C22046E7500E9F55F /* TaskActionController.swift in Sources */,
+				078CA9842204D4F3005BAE19 /* PictureSourceAlertController.swift in Sources */,
 				07CA4C5F2204538000E9F55F /* Smart_Reminder.xcdatamodeld in Sources */,
+				07CA4C742204619800E9F55F /* CreateReminderViewController.swift in Sources */,
+				07CA4C8822048FD900E9F55F /* Classifier.swift in Sources */,
+				078CA9862204D76D005BAE19 /* JSONDecoder-Extension.swift in Sources */,
+				078CA9802204C3B9005BAE19 /* ImageClassifier.mlmodel in Sources */,
+				07CA4C6E22045A7600E9F55F /* ReminderDataSource.swift in Sources */,
+				078CA9822204C743005BAE19 /* SuggestedReminderViewController.swift in Sources */,
 				07CA4C592204538000E9F55F /* ViewController.swift in Sources */,
+				07CA4C772204630600E9F55F /* ReminderDateAlertController.swift in Sources */,
+				078CA9882204D784005BAE19 /* CIImage-Extension.swift in Sources */,
+				07CA4C6C220456FD00E9F55F /* CoreDataHelper.swift in Sources */,
 				07CA4C572204538000E9F55F /* AppDelegate.swift in Sources */,
+				07CA4C7022045B5600E9F55F /* UserTask.swift in Sources */,
+				078CA98C2204DEE8005BAE19 /* TaskCell.swift in Sources */,
+				07CA4C7A22046DDD00E9F55F /* Date-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,16 @@
+{
+    "payload": {
+        "Vehicle": {
+            "suggestions": ["Give it for service", "Vehicle needs a wash", "Oil change", "Refuel the vehicle"]
+        },
+        "Apparel": {
+            "suggestions": ["Give it for laundry", "Dry cleaning", "Collect clothes from laundry", "Exchange/return the clothes"]
+        },
+        "Book": {
+            "suggestions": ["Return to the library", "Order online", "Return to a friend", "Enquire at the library for the book"]
+        },
+        "Grocery": {
+            "suggestions": ["Order the groceries"]
+        }
+    }
+}
