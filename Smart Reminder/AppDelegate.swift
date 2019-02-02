@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
+        guard let nav = window?.rootViewController as? UINavigationController else { return }
+        guard let vc = nav.children.first(where: { $0 is ViewController }) as? ViewController else { return }
+        vc.tableView.reloadData()
     }
     
     func requestNotificationPermission() {
@@ -82,5 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     // so notifications show in foreground
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+        guard let nav = window?.rootViewController as? UINavigationController else { return }
+        guard let vc = nav.children.first(where: { $0 is ViewController }) as? ViewController else { return }
+        vc.tableView.reloadData()
+    }
     
 }

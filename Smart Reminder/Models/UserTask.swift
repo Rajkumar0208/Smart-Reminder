@@ -21,4 +21,5 @@ struct UserTask {
         dueDate = object.value(forKeyPath: TaskAttribute.dueDate.rawValue) as? Date ?? Date()
         isCompleted = object.value(forKeyPath: TaskAttribute.isCompleted.rawValue) as? Bool ?? false
     }
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070682A52205830B005B5160 /* UNNotificationRequest-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070682A42205830B005B5160 /* UNNotificationRequest-Extension.swift */; };
 		078CA9802204C3B9005BAE19 /* ImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 078CA97F2204C3B9005BAE19 /* ImageClassifier.mlmodel */; };
 		078CA9822204C743005BAE19 /* SuggestedReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9812204C743005BAE19 /* SuggestedReminderViewController.swift */; };
 		078CA9842204D4F3005BAE19 /* PictureSourceAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078CA9832204D4F3005BAE19 /* PictureSourceAlertController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070682A42205830B005B5160 /* UNNotificationRequest-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationRequest-Extension.swift"; sourceTree = "<group>"; };
 		078CA97F2204C3B9005BAE19 /* ImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageClassifier.mlmodel; sourceTree = "<group>"; };
 		078CA9812204C743005BAE19 /* SuggestedReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedReminderViewController.swift; sourceTree = "<group>"; };
 		078CA9832204D4F3005BAE19 /* PictureSourceAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSourceAlertController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				078CA9852204D76D005BAE19 /* JSONDecoder-Extension.swift */,
 				078CA9872204D784005BAE19 /* CIImage-Extension.swift */,
 				078CA9892204DC52005BAE19 /* UINavigationController-Extension.swift */,
+				070682A42205830B005B5160 /* UNNotificationRequest-Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				07CA4C592204538000E9F55F /* ViewController.swift in Sources */,
 				07CA4C772204630600E9F55F /* ReminderDateAlertController.swift in Sources */,
 				078CA9882204D784005BAE19 /* CIImage-Extension.swift in Sources */,
+				070682A52205830B005B5160 /* UNNotificationRequest-Extension.swift in Sources */,
 				07CA4C6C220456FD00E9F55F /* CoreDataHelper.swift in Sources */,
 				07CA4C572204538000E9F55F /* AppDelegate.swift in Sources */,
 				07CA4C7022045B5600E9F55F /* UserTask.swift in Sources */,

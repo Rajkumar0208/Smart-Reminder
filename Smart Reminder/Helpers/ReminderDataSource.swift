@@ -16,10 +16,15 @@ enum Filter {
 
 class ReminderDataSource: NSObject {
     
-    private var tasks: [UserTask] = []
-    private var filteredTasks: [UserTask] = []
-    private let cellID = "cell"
-    private var filter: Filter = .pending
+    fileprivate var tasks: [UserTask] = []
+    fileprivate var filteredTasks: [UserTask] = []
+    fileprivate let cellID = "cell"
+    fileprivate var filter: Filter = .pending
+    
+    lazy var managedContext: NSManagedObjectContext? = {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        return appDelegate?.persistentContainer.viewContext
+    }()
     
     override init() {
         super.init()
@@ -81,78 +86,41 @@ extension ReminderDataSource: UITableViewDataSource {
 extension ReminderDataSource {
     
     fileprivate func fetchFromCoreData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CoreDataEntity.Task.rawValue)
-        do {
-            let objects = try managedContext.fetch(fetchRequest)
-            let tasks = objects.map { UserTask($0) }
-            self.tasks = tasks
-            applyFilter(filter)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        tasks = managedContext?.getTasks() ?? []
+        applyFilter(filter)
     }
     
     func save(title: String, dueDate: Date, isCompleted: Bool = false) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: CoreDataEntity.Task.rawValue, in: managedContext)!
-        let object = NSManagedObject(entity: entity, insertInto: managedContext)
-        object.setValue(title, forKeyPath: TaskAttribute.title.rawValue)
-        object.setValue(dueDate, forKeyPath: TaskAttribute.dueDate.rawValue)
-        object.setValue(isCompleted, forKeyPath: TaskAttribute.isCompleted.rawValue)
+        let task = managedContext?.saveTask(title: title, dueDate: dueDate, isCompleted: isCompleted)
         
-        do {
-            try managedContext.save()
-            let task = UserTask(object)
-            setLocalPushNotification(task)
-            tasks.append(task)
-            applyFilter(filter)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        guard let t = task else { return }
+        setLocalPushNotification(t)
+        
+        tasks.append(t)
+        applyFilter(filter)
     }
     
     fileprivate func setLocalPushNotification(_ task: UserTask) {
-        let content = UNMutableNotificationContent()
-        content.title = "Smart Reminder Alert"
-        content.subtitle = task.title
-        content.badge = 1
-        content.sound = UNNotificationSound.default
-        
-        let timeInterval = task.dueDate.timeIntervalSince1970 - Date().timeIntervalSince1970
-        if timeInterval <= 0 { return }
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        let requestID = task.id.uriRepresentation().absoluteString
-        let request = UNNotificationRequest(identifier: requestID, content: content, trigger: trigger)
+        if task.dueDate.isOverdue { return }
+        let request = UNNotificationRequest(task: task)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     fileprivate func deleteObject(_ task: UserTask) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let object = managedContext.object(with: task.id)
-        managedContext.delete(object)
+        let id = task.id.uriRepresentation().absoluteString
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
         
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [task.id.uriRepresentation().absoluteString])
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        managedContext?.deleteTask(task)
     }
     
     fileprivate func update(_ task: UserTask) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let object = managedContext.object(with: task.id)
-        object.setValue(task.isCompleted, forKeyPath: TaskAttribute.isCompleted.rawValue)
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        managedContext?.updateTask(task)
+        
+        if task.isCompleted {
+            let id = task.id.uriRepresentation().absoluteString
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        } else if !task.dueDate.isOverdue {
+            setLocalPushNotification(task)
         }
     }
 
